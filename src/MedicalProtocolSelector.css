@@ -13,7 +13,7 @@
   }
   
   .logo {
-    width: 99.99vw; /* One-third of the viewport width */
+    width: 100vw; /* One-third of the viewport width */
     max-width: 500px; /* Optional: Set a maximum width */
     margin-bottom: 1rem;
   }
@@ -84,4 +84,15 @@
     border-radius: 12px;
     font-size: 0.875rem;
     font-weight: bold;
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .sticker:hover {
+    background-color: #21a1f1; /* Change color on hover */
+  }
+  .instruction-text {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #555;
+    text-align: center;
   }

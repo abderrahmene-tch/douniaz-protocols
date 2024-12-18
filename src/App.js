@@ -34,7 +34,6 @@ const protocolData = {
   }
 };
 
-
 const MedicalProtocolSelector = () => {
   const [selectedPathologie, setSelectedPathologie] = useState('');
   const [selectedCriteres, setSelectedCriteres] = useState([]);
@@ -107,9 +106,18 @@ const MedicalProtocolSelector = () => {
           <h2 className="result-title">Matching Protocols:</h2>
           <div className="sticker-container">
             {matchedProtocols.map((protocol, index) => (
-              <span key={index} className="sticker">{protocol}</span>
+              <a 
+                key={index} 
+                href={`./assets/${protocol}.pdf`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="sticker"
+              >
+                {protocol}
+              </a>
             ))}
           </div>
+          <p className="instruction-text">Click to display the procedure</p>
         </div>
       )}
     </div>
