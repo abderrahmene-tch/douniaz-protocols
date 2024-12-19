@@ -3,36 +3,39 @@ import './MedicalProtocolSelector.css'; // Import the CSS file
 import logo from './assets/logo.png';
 
 const protocolData = {
-  "ACREH et/ou ACRIH": {
-    "rythme sinusal": "HEAVENWARD",
+  "ACREH ou ACRIH": {
+    "rythme sinusal": "HEAVENwARD",
     "Nécessité de NAD": "HYVAPRESS",
-    "NAD et lactate > 2": "AREG SHOCK",
-    "Absence de réveil à H 48": "EXPRESSCOMA, PRECOM",
+    "NAD et lactate > 2": "AREG-SHOCK",
+    "Absence de réveil à H 48": ["EXPRESSCOMA","PRECOM"],
     "Nécessité d'une dialyse": "ICRAKI"
   },
   "Sepsis / Choc septique": {
-    "Tous chocs septiques": "AREG SHOCK",
-    "Immunosuppression": "COMBINATION LOCK",
-    "Pneumopathie aiguë communautaire": "ESSCAPE",
-    "PAVM": "RECORDS",
-    "Infection respiratoire virale": "SEVAVIR",
+    "Tous chocs septiques": "AREG-SHOCK",
+    "Immunosuppression": "COMBINATION-LOCK",
+    "Pneumopathie aiguë communautaire": ["ESSCAPE","RECORDS"],
+    "PAVM": ["RECORDS","IGNORANT"],
+    "Infection respiratoire virale": ["SEVAVIR","RECORDS","ESSCAPE","OPTIFLU"], 
     "Infection à Enterobact BLSE": "PITAGORE",
-    "Infection nécrosante de la peau": "SKIN ICU",
+    "Infection nécrosante de la peau": ["SKIN-ICU","VACATION"],
     "Dialyse (patient sous VMI et/ou NAD)": "ICRAKI",
-    "Intubation": "NESOI 2",
-    "Si BPCO et infection respiratoire": "CORTICOP"
+    "Intubation": "NESOI-2",
+    "NAD et intubé": "NUTRIREA-4" 
+
   },
-  "Autres Pathologies": {
-    "NAD et VMI": "NUTRIREA 4",
-    "Intubation": "NESOI 2",
-    "VMI et NAD": "NUTRIREA 4",
-    "BPCO": "CORTICOP",
-    "Dialyse du patient ventilé et/ou sous NAD": "ICRAKI",
-    "Extubation": "SYSTOWEAN",
+  "SDRA – NAD et intubé – syndrome hemophagocytaire": {
+    "NAD et intubé": "NUTRIREA-4",
     "SDRA": "IVOLIA",
     "Syndrome hémophagocytaire": "JAKAHDI"
+  },
+  "Procedure": {
+    "Intubation ": "NESOI-2",
+    "Extubation": "SYSTOWEAN",
+    "Syndrome Dialyse": "ICRAKI",
+    "Décision de LAT": "FAME"
   }
 };
+
 
 const MedicalProtocolSelector = () => {
   const [selectedPathologie, setSelectedPathologie] = useState('');
@@ -57,7 +60,12 @@ const MedicalProtocolSelector = () => {
     ? Object.keys(protocolData[selectedPathologie])
     : [];
 
-  const matchedProtocols = selectedCriteres.map(critere => protocolData[selectedPathologie][critere]);
+    const matchedProtocols = Array.from(new Set(
+      selectedCriteres.flatMap(critere => {
+        const protocol = protocolData[selectedPathologie][critere];
+        return Array.isArray(protocol) ? protocol : [protocol];
+      })
+    ));
 
   return (
     <div className="container">
@@ -107,8 +115,8 @@ const MedicalProtocolSelector = () => {
           <div className="sticker-container">
             {matchedProtocols.map((protocol, index) => (
               <a 
-                key={index} 
-                href={`./assets/${protocol}.pdf`} 
+              key={protocol}
+                href={process.env.PUBLIC_URL + `/protocols/${encodeURIComponent(protocol)}.pdf`}
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="sticker"
