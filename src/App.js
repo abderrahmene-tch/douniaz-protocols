@@ -15,7 +15,7 @@ const protocolData = {
     "Immunosuppression": "COMBINATION-LOCK",
     "Pneumopathie aiguë communautaire": ["ESSCAPE","RECORDS"],
     "PAVM": ["RECORDS","IGNORANT"],
-    "Infection respiratoire virale": ["SEVAVIR","RECORDS","ESSCAPE","OPTIFLU"], 
+    "Infection respiratoire virale": ["SEVARVIR","RECORDS","ESSCAPE","OPTIFLU"], 
     "Infection à Enterobact BLSE": "PITAGORE",
     "Infection nécrosante de la peau": ["SKIN-ICU","VACATION"],
     "Dialyse (patient sous VMI et/ou NAD)": "ICRAKI",
