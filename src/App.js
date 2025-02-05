@@ -14,7 +14,7 @@ const protocolData = {
     "Tous chocs septiques": "AREG-SHOCK",
     "Immunosuppression": "COMBINATION-LOCK",
     "Pneumopathie aiguë communautaire": ["ESSCAPE","RECORDS"],
-    "PAVM": ["RECORDS","IGNORANT"],
+    "PAVM": ["IGNORANT"],
     "Infection respiratoire virale": ["SEVARVIR","RECORDS","ESSCAPE","OPTIFLU"], 
     "Infection à Enterobact BLSE": "PITAGORE",
     "Infection nécrosante de la peau": ["SKIN-ICU","VACATION"],
@@ -31,7 +31,7 @@ const protocolData = {
   "Procedure": {
     "Intubation ": "NESOI-2",
     "Extubation": "SYSTOWEAN",
-    "Syndrome Dialyse": "ICRAKI",
+    "Dialyse": "ICRAKI",
     "Décision de LAT": "FAME"
   }
 };
