@@ -8,7 +8,9 @@ const protocolData = {
     "Nécessité de NAD": "HYVAPRESS",
     "NAD et lactate > 2": "AREG-SHOCK",
     "Absence de réveil à H 48": ["EXPRESSCOMA","PRECOM"],
-    "Nécessité d'une dialyse": "ICRAKI"
+    "Nécessité d'une dialyse": "ICRAKI",
+    "ACR extrahospitalier à l’admission": "HYPERION2",
+    "ACR intra et extrahospitalier": "OVERCOOL"
   },
   "Sepsis / Choc septique": {
     "Tous chocs septiques": "AREG-SHOCK",
@@ -20,7 +22,9 @@ const protocolData = {
     "Infection nécrosante de la peau": ["SKIN-ICU","VACATION"],
     "Dialyse (patient sous VMI et/ou NAD)": "ICRAKI",
     "Intubation": "NESOI-2",
-    "NAD et intubé": "NUTRIREA-4" 
+    "NAD et intubé": "NUTRIREA-4",
+    "Sepsis sévère sous NAD": "REGENERON",
+    "Sepsis à P.aeruginosa DTR": "ADDICT"
 
   },
   "SDRA – NAD et intubé – syndrome hemophagocytaire": {
@@ -29,10 +33,14 @@ const protocolData = {
     "Syndrome hémophagocytaire": "JAKAHDI"
   },
   "Procedure": {
-    "Intubation ": "NESOI-2",
     "Extubation": "SYSTOWEAN",
-    "Dialyse": "ICRAKI",
-    "Décision de LAT": "FAME"
+    "Dialyse": "ICRAKI"
+  },
+  "Patient intubé > 48H": {
+    "Obésité / BPCO / Cardiopathie >48h": "SYSTOWEAN",
+    "Recherche BMR à l'admission >48h d'intubation": "TANGERINE",
+    "Patient intubé depuis >48H et <120H": "RELIEF",
+    "SDRA": "IVOLIA"
   }
 };
 
