@@ -40,7 +40,6 @@ const protocolData = {
     "Obésité / BPCO / Cardiopathie >48h": "SYSTOWEAN",
     "Recherche BMR à l'admission >48h d'intubation": "TANGERINE",
     "Patient intubé depuis >48H et <120H": "RELIEF",
-    "SDRA": "IVOLIA"
   }
 };
 
